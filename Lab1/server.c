@@ -5,11 +5,18 @@
 #include <sys/types.h> 
 #include <sys/socket.h>
 #include <netinet/in.h>
+#include <signal.h>
+#include <sys/wait.h>
 
 void error(char *msg)
 {
     perror(msg);
     exit(1);
+}
+
+void *SigCatcher(int n)
+{
+	wait3(NULL, WNOHANG, NULL);
 }
 
 void dostuff(int sock)
@@ -50,6 +57,8 @@ int main(int argc, char *argv[])
    
     listen(sockfd,5);
     clilen = sizeof(cli_addr);
+	
+	signal(SIGCHLD, SigCatcher);
    
     while (1) 
 	{
