@@ -1,15 +1,15 @@
 VERSION 6
 BEGIN SCHEMATIC
-    BEGIN ATTR DeviceFamilyName "virtex2p"
+    BEGIN ATTR DeviceFamilyName "aspartan2e"
         DELETE all:0
         EDITNAME all:0
         EDITTRAIT all:0
     END ATTR
     BEGIN NETLIST
+        SIGNAL XLXN_1
         SIGNAL XLXN_2
-        SIGNAL XLXN_6
-        SIGNAL XLXN_7
-        SIGNAL XLXN_8
+        SIGNAL XLXN_3
+        SIGNAL XLXN_4
         SIGNAL cout
         SIGNAL a
         SIGNAL b
@@ -59,92 +59,92 @@ BEGIN SCHEMATIC
         BEGIN BLOCK XLXI_1 xor2
             PIN I0 b
             PIN I1 a
-            PIN O XLXN_2
+            PIN O XLXN_1
         END BLOCK
         BEGIN BLOCK XLXI_2 xor2
             PIN I0 cin
-            PIN I1 XLXN_2
+            PIN I1 XLXN_1
             PIN O z
         END BLOCK
         BEGIN BLOCK XLXI_3 and2
             PIN I0 b
             PIN I1 a
-            PIN O XLXN_6
+            PIN O XLXN_2
         END BLOCK
         BEGIN BLOCK XLXI_4 and2
             PIN I0 cin
             PIN I1 b
-            PIN O XLXN_7
+            PIN O XLXN_3
         END BLOCK
         BEGIN BLOCK XLXI_5 and2
             PIN I0 cin
             PIN I1 a
-            PIN O XLXN_8
+            PIN O XLXN_4
         END BLOCK
         BEGIN BLOCK XLXI_6 or3
-            PIN I0 XLXN_8
-            PIN I1 XLXN_7
-            PIN I2 XLXN_6
+            PIN I0 XLXN_4
+            PIN I1 XLXN_3
+            PIN I2 XLXN_2
             PIN O cout
         END BLOCK
     END NETLIST
     BEGIN SHEET 1 3520 2720
-        INSTANCE XLXI_1 944 576 R0
-        INSTANCE XLXI_2 1360 688 R0
-        INSTANCE XLXI_3 944 864 R0
-        INSTANCE XLXI_4 944 1008 R0
-        INSTANCE XLXI_5 944 1152 R0
-        INSTANCE XLXI_6 1360 1040 R0
+        INSTANCE XLXI_1 1120 1040 R0
+        INSTANCE XLXI_2 1536 1152 R0
+        INSTANCE XLXI_3 1120 1328 R0
+        INSTANCE XLXI_4 1120 1472 R0
+        INSTANCE XLXI_5 1120 1616 R0
+        INSTANCE XLXI_6 1536 1504 R0
+        BEGIN BRANCH XLXN_1
+            WIRE 1376 944 1456 944
+            WIRE 1456 944 1456 1024
+            WIRE 1456 1024 1536 1024
+        END BRANCH
         BEGIN BRANCH XLXN_2
-            WIRE 1200 480 1280 480
-            WIRE 1280 480 1280 560
-            WIRE 1280 560 1360 560
+            WIRE 1376 1232 1536 1232
+            WIRE 1536 1232 1536 1312
         END BRANCH
-        BEGIN BRANCH XLXN_6
-            WIRE 1200 768 1360 768
-            WIRE 1360 768 1360 848
+        BEGIN BRANCH XLXN_3
+            WIRE 1376 1376 1536 1376
         END BRANCH
-        BEGIN BRANCH XLXN_7
-            WIRE 1200 912 1360 912
-        END BRANCH
-        BEGIN BRANCH XLXN_8
-            WIRE 1200 1056 1360 1056
-            WIRE 1360 976 1360 1056
+        BEGIN BRANCH XLXN_4
+            WIRE 1376 1520 1536 1520
+            WIRE 1536 1440 1536 1520
         END BRANCH
         BEGIN BRANCH cout
-            WIRE 1616 912 1680 912
+            WIRE 1792 1376 1856 1376
         END BRANCH
         BEGIN BRANCH a
-            WIRE 704 448 896 448
-            WIRE 896 448 944 448
-            WIRE 896 448 896 736
-            WIRE 896 736 944 736
-            WIRE 896 736 896 1024
-            WIRE 896 1024 944 1024
+            WIRE 880 912 1072 912
+            WIRE 1072 912 1120 912
+            WIRE 1072 912 1072 1200
+            WIRE 1072 1200 1120 1200
+            WIRE 1072 1200 1072 1488
+            WIRE 1072 1488 1120 1488
         END BRANCH
         BEGIN BRANCH b
-            WIRE 704 512 864 512
-            WIRE 864 512 944 512
-            WIRE 864 512 864 800
-            WIRE 864 800 944 800
-            WIRE 864 800 864 880
-            WIRE 864 880 944 880
+            WIRE 880 976 1040 976
+            WIRE 1040 976 1120 976
+            WIRE 1040 976 1040 1264
+            WIRE 1040 1264 1120 1264
+            WIRE 1040 1264 1040 1344
+            WIRE 1040 1344 1120 1344
         END BRANCH
         BEGIN BRANCH cin
-            WIRE 704 624 832 624
-            WIRE 832 624 1360 624
-            WIRE 832 624 832 944
-            WIRE 832 944 944 944
-            WIRE 832 944 832 1088
-            WIRE 832 1088 944 1088
+            WIRE 880 1088 1008 1088
+            WIRE 1008 1088 1536 1088
+            WIRE 1008 1088 1008 1408
+            WIRE 1008 1408 1120 1408
+            WIRE 1008 1408 1008 1552
+            WIRE 1008 1552 1120 1552
         END BRANCH
-        IOMARKER 704 448 a R180 28
-        IOMARKER 704 512 b R180 28
-        IOMARKER 704 624 cin R180 28
         BEGIN BRANCH z
-            WIRE 1616 592 1648 592
+            WIRE 1792 1056 1824 1056
         END BRANCH
-        IOMARKER 1648 592 z R0 28
-        IOMARKER 1680 912 cout R0 28
+        IOMARKER 880 912 a R180 28
+        IOMARKER 880 976 b R180 28
+        IOMARKER 880 1088 cin R180 28
+        IOMARKER 1824 1056 z R0 28
+        IOMARKER 1856 1376 cout R0 28
     END SHEET
 END SCHEMATIC

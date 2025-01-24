@@ -1,6 +1,6 @@
 VERSION 6
 BEGIN SCHEMATIC
-    BEGIN ATTR DeviceFamilyName "virtex2p"
+    BEGIN ATTR DeviceFamilyName "aspartan2e"
         DELETE all:0
         EDITNAME all:0
         EDITTRAIT all:0
@@ -25,7 +25,7 @@ BEGIN SCHEMATIC
         PORT Input B(31:0)
         PORT Output and2_32bit(31:0)
         BEGIN BLOCKDEF and2_8bit
-            TIMESTAMP 2025 1 23 8 17 5
+            TIMESTAMP 2025 1 24 20 6 23
             RECTANGLE N 64 -128 320 0 
             RECTANGLE N 0 -108 64 -84 
             LINE N 64 -96 0 -96 
@@ -34,12 +34,12 @@ BEGIN SCHEMATIC
             RECTANGLE N 320 -108 384 -84 
             LINE N 320 -96 384 -96 
         END BLOCKDEF
-        BEGIN BLOCK XLXI_2 and2_8bit
+        BEGIN BLOCK XLXI_1 and2_8bit
             PIN A(7:0) A(23:16)
             PIN B(7:0) B(23:16)
             PIN and2_8(7:0) and2_32bit(23:16)
         END BLOCK
-        BEGIN BLOCK XLXI_4 and2_8bit
+        BEGIN BLOCK XLXI_2 and2_8bit
             PIN A(7:0) A(15:8)
             PIN B(7:0) B(15:8)
             PIN and2_8(7:0) and2_32bit(15:8)
@@ -49,7 +49,7 @@ BEGIN SCHEMATIC
             PIN B(7:0) B(7:0)
             PIN and2_8(7:0) and2_32bit(7:0)
         END BLOCK
-        BEGIN BLOCK XLXI_1 and2_8bit
+        BEGIN BLOCK XLXI_4 and2_8bit
             PIN A(7:0) A(31:24)
             PIN B(7:0) B(31:24)
             PIN and2_8(7:0) and2_32bit(31:24)
@@ -57,60 +57,60 @@ BEGIN SCHEMATIC
     END NETLIST
     BEGIN SHEET 1 3520 2720
         BEGIN BRANCH A(31:0)
-            WIRE 400 720 560 720
+            WIRE 928 832 1088 832
         END BRANCH
         BEGIN BRANCH B(31:0)
-            WIRE 400 800 560 800
+            WIRE 928 912 1088 912
         END BRANCH
         BEGIN BRANCH and2_32bit(31:0)
-            WIRE 720 720 880 720
+            WIRE 1248 832 1408 832
         END BRANCH
-        IOMARKER 400 720 A(31:0) R180 28
-        IOMARKER 400 800 B(31:0) R180 28
-        BEGIN INSTANCE XLXI_2 416 1344 R0
+        BEGIN INSTANCE XLXI_1 944 1456 R0
         END INSTANCE
-        BEGIN INSTANCE XLXI_4 416 1584 R0
+        BEGIN INSTANCE XLXI_2 944 1696 R0
         END INSTANCE
-        BEGIN INSTANCE XLXI_3 416 1824 R0
+        BEGIN INSTANCE XLXI_3 944 1936 R0
         END INSTANCE
-        BEGIN INSTANCE XLXI_1 416 1104 R0
+        BEGIN INSTANCE XLXI_4 944 1216 R0
         END INSTANCE
-        IOMARKER 880 720 and2_32bit(31:0) R0 28
         BEGIN BRANCH A(31:24)
-            WIRE 320 1008 416 1008
+            WIRE 848 1120 944 1120
         END BRANCH
         BEGIN BRANCH B(31:24)
-            WIRE 320 1072 416 1072
+            WIRE 848 1184 944 1184
         END BRANCH
         BEGIN BRANCH and2_32bit(31:24)
-            WIRE 800 1008 880 1008
+            WIRE 1328 1120 1408 1120
         END BRANCH
         BEGIN BRANCH A(23:16)
-            WIRE 320 1248 416 1248
+            WIRE 848 1360 944 1360
         END BRANCH
         BEGIN BRANCH B(23:16)
-            WIRE 320 1312 416 1312
+            WIRE 848 1424 944 1424
         END BRANCH
         BEGIN BRANCH and2_32bit(23:16)
-            WIRE 800 1248 880 1248
+            WIRE 1328 1360 1408 1360
         END BRANCH
         BEGIN BRANCH A(15:8)
-            WIRE 320 1488 416 1488
+            WIRE 848 1600 944 1600
         END BRANCH
         BEGIN BRANCH B(15:8)
-            WIRE 320 1552 416 1552
+            WIRE 848 1664 944 1664
         END BRANCH
         BEGIN BRANCH and2_32bit(15:8)
-            WIRE 800 1488 880 1488
+            WIRE 1328 1600 1408 1600
         END BRANCH
         BEGIN BRANCH A(7:0)
-            WIRE 320 1728 416 1728
+            WIRE 848 1840 944 1840
         END BRANCH
         BEGIN BRANCH B(7:0)
-            WIRE 320 1792 416 1792
+            WIRE 848 1904 944 1904
         END BRANCH
         BEGIN BRANCH and2_32bit(7:0)
-            WIRE 800 1728 880 1728
+            WIRE 1328 1840 1408 1840
         END BRANCH
+        IOMARKER 928 832 A(31:0) R180 28
+        IOMARKER 928 912 B(31:0) R180 28
+        IOMARKER 1408 832 and2_32bit(31:0) R0 28
     END SHEET
 END SCHEMATIC
