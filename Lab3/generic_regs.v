@@ -94,6 +94,19 @@
 `define CPCI_NF2_DATA_WIDTH 16
 `define IDS_BLOCK_TAG 1
 `define IDS_REG_ADDR_WIDTH 16
+`define LOG2_FUNC \
+function integer log2; \
+  input integer value; \
+  begin \
+    if (value <= 1) \
+      log2 = 0; \
+    else begin \
+      value = value - 1; \
+      for (log2 = 0; value > 0; log2 = log2 + 1) \
+        value = value >> 1; \
+    end \
+  end \
+endfunction
 
 module generic_regs
    #( 

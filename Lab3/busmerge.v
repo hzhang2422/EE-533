@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    11:01:44 01/29/2025 
+// Create Date:    23:54:46 01/28/2025 
 // Design Name: 
 // Module Name:    busmerge 
 // Project Name: 
@@ -18,12 +18,10 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module busmerge(
-    input [47:0] da,
-    input [63:0] db,
-    output [111:0] q
-    );
+module busmerge(da, db, q);
+    input [47:0] da;
+    input [63:0] db;
+    output [111:0] q;
 	 
-	 assign q = {da, db};
-
+    assign q = {da,db};
 endmodule

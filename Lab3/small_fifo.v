@@ -15,7 +15,8 @@
   module small_fifo
     #(parameter WIDTH = 72,
       parameter MAX_DEPTH_BITS = 3,
-      parameter NEARLY_FULL = 2**MAX_DEPTH_BITS - 1)
+      parameter NEARLY_FULL = 2**MAX_DEPTH_BITS - 1,
+		parameter PROG_FULL_THRESHOLD = 2**MAX_DEPTH_BITS - 1)
     (
 		   
      input [WIDTH-1:0] din,     // Data in
@@ -25,6 +26,7 @@
      
      output reg [WIDTH-1:0]  dout,    // Data out
      output         full,
+	  output         prog_full,
      output         nearly_full,
      output         empty,
      
@@ -79,6 +81,7 @@ end
 //assign dout = queue[rd_ptr];
 assign full = depth == MAX_DEPTH;
 assign nearly_full = depth >= NEARLY_FULL;
+assign prog_full = (depth >= PROG_FULL_THRESHOLD);
 assign empty = depth == 'h0;
 
 // synthesis translate_off

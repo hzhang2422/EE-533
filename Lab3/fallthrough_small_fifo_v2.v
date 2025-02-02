@@ -34,11 +34,13 @@
      );
 
    reg  fifo_rd_en, empty_nxt;
+	wire fifo_empty;
 
    small_fifo
      #(.WIDTH (WIDTH),
        .MAX_DEPTH_BITS (MAX_DEPTH_BITS),
-       .PROG_FULL_THRESHOLD (PROG_FULL_THRESHOLD))
+       .NEARLY_FULL (PROG_FULL_THRESHOLD),
+		 .PROG_FULL_THRESHOLD (PROG_FULL_THRESHOLD))
        fifo
         (.din           (din),
          .wr_en         (wr_en),
@@ -46,7 +48,7 @@
          .dout          (dout),
          .full          (full),
          .nearly_full   (nearly_full),
-//         .prog_full     (prog_full),
+         .prog_full     (prog_full),
          .empty         (fifo_empty),
          .reset         (reset),
          .clk           (clk)

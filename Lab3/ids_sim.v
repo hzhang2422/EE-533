@@ -56,6 +56,7 @@ module ids_sim
 
    // Define the log2 function
    // `LOG2_FUNC
+	
 
    //------------------------- Signals-------------------------------
    
@@ -72,6 +73,11 @@ module ids_sim
    reg                           out_wr_int;
 
    reg			         out_wr_int_next;
+	
+	wire matcher_en;
+   wire matcher_ce;
+   wire matcher_reset;
+   wire matcher_match;
 
    // software registers 
    wire [31:0]                   pattern_high;
@@ -92,10 +98,10 @@ module ids_sim
    parameter                     START = 2'b00;
    parameter                     HEADER = 2'b01;
    parameter                     PAYLOAD = 2'b10;
-   // parameter                  EMPTY = 4'b0001;
-   // parameter                  FILLING = 4'b0010;
-   // parameter                  FULL = 4'b0100;
-   // parameter                  DRAINING = 4'b1000;
+   parameter                  EMPTY = 4'b0001;
+   parameter                  FILLING = 4'b0010;
+   parameter                  FULL = 4'b0100;
+   parameter                  DRAINING = 4'b1000;
  
    //------------------------- Local assignments -------------------------------
 
